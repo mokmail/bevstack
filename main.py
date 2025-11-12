@@ -114,7 +114,9 @@ def make_cataloge(images:list[str] , name="Bev Catalog") -> Catalog:
         #     properties={},
         #     href=image
         # )
+        item.add_asset("image", pystac.Asset(href=image, media_type=item.assets['image'].media_type))
         items.append(item)
+
 
     minx, miny, maxx, maxy = zip(*collection_bboxes)
     collection = pystac.Collection(
@@ -151,8 +153,9 @@ def make_cataloge(images:list[str] , name="Bev Catalog") -> Catalog:
 images = [
     'https://data.bev.gv.at/download/KM_R/KM50/20250710/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1440_2_20250710.tif',
     'https://data.bev.gv.at/download/KM_R/KM50/20250505/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1330_2_20250505.tif',
-    'https://data.bev.gv.at/download/DOP/20250415/2024470_Mosaik_RGB.tif', 'https://data.bev.gv.at/download/DGM/Hoehenraster/DGM_R500.tif'
-    
+    'https://data.bev.gv.at/download/DOP/20250415/2024470_Mosaik_RGB.tif',
+    'https://data.bev.gv.at/download/DGM/Hoehenraster/DGM_R500.tif'
+
 ]
 with gr.Blocks() as demo:
     
