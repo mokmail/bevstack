@@ -293,13 +293,17 @@
                         ]
                     ]
                 },
-                "datetime": "2025-11-12T13:04:42.878341Z"
+                "datetime": "2025-11-12T13:07:31.025334Z"
             },
             "links": [],
             "assets": {
                 "image": {
                     "href": "https://data.bev.gv.at/download/KM_R/KM50/20250710/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1440_2_20250710.tif",
-                    "type": "image/tiff; application=geotiff"
+                    "type": "image/tiff; application=geotiff",
+                    "roles": [
+                        "thumbnail",
+                        "data"
+                    ]
                 }
             }
         },
@@ -595,13 +599,17 @@
                         ]
                     ]
                 },
-                "datetime": "2025-11-12T13:04:51.135508Z"
+                "datetime": "2025-11-12T13:07:38.210332Z"
             },
             "links": [],
             "assets": {
                 "image": {
                     "href": "https://data.bev.gv.at/download/KM_R/KM50/20250505/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1330_2_20250505.tif",
-                    "type": "image/tiff; application=geotiff"
+                    "type": "image/tiff; application=geotiff",
+                    "roles": [
+                        "thumbnail",
+                        "data"
+                    ]
                 }
             }
         },
@@ -897,13 +905,17 @@
                         ]
                     ]
                 },
-                "datetime": "2025-11-12T13:04:51.486756Z"
+                "datetime": "2025-11-12T13:07:38.363827Z"
             },
             "links": [],
             "assets": {
                 "image": {
                     "href": "https://data.bev.gv.at/download/DOP/20250415/2024470_Mosaik_RGB.tif",
-                    "type": "image/tiff; application=geotiff"
+                    "type": "image/tiff; application=geotiff",
+                    "roles": [
+                        "thumbnail",
+                        "data"
+                    ]
                 }
             }
         },
@@ -1132,13 +1144,17 @@
                         ]
                     ]
                 },
-                "datetime": "2025-11-12T13:04:51.686078Z"
+                "datetime": "2025-11-12T13:07:38.555234Z"
             },
             "links": [],
             "assets": {
                 "image": {
                     "href": "https://data.bev.gv.at/download/DGM/Hoehenraster/DGM_R500.tif",
-                    "type": "image/tiff; application=geotiff"
+                    "type": "image/tiff; application=geotiff",
+                    "roles": [
+                        "thumbnail",
+                        "data"
+                    ]
                 }
             }
         }

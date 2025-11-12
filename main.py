@@ -114,7 +114,7 @@ def make_cataloge(images:list[str] , name="Bev Catalog") -> Catalog:
         #     properties={},
         #     href=image
         # )
-        item.add_asset("image", pystac.Asset(href=image, media_type=item.assets['image'].media_type))
+        item.add_asset(key="image", asset=pystac.Asset(href=image, media_type=item.assets['image'].media_type , roles=["thumbnail", "data"]))
         items.append(item)
 
 
