@@ -142,7 +142,7 @@ def make_cataloge(images:list[str] , name="Bev Catalog") -> Catalog:
 
 images = [
     'https://data.bev.gv.at/download/KM_R/KM50/20250710/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1440_2_20250710.tif',
-    'https://data.bev.gv.at/download/KM_R/KM50/20250505/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1330_2_20250505.tif'
+    'https://data.bev.gv.at/download/KM_R/KM50/20250505/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1330_2_20250505.tif','https://data.bev.gv.at/download/DOP/20250415/2024470_Mosaik_RGB.tif'
 ]
 with gr.Blocks() as demo:
     
