@@ -1,0 +1,25 @@
+{
+    "type": "Catalog",
+    "id": "Bev_catalog",
+    "stac_version": "1.1.0",
+    "description": "A bev STAC catalog",
+    "links": [
+        {
+            "rel": "root",
+            "href": "/home/kmail/bevstack",
+            "type": "application/json",
+            "title": "Bev Catalog"
+        },
+        {
+            "rel": "self",
+            "href": "/home/kmail/bevstack",
+            "type": "application/json"
+        },
+        {
+            "rel": "child",
+            "href": "/home/kmail/bevstack/bev_catalog/collection.json",
+            "type": "application/json"
+        }
+    ],
+    "title": "Bev Catalog"
+}

@@ -1,6 +1,6 @@
 import json
 from urllib.request import urlopen
-from pystac import Catalog, get_stac_version
+from pystac import Catalog, get_stac_version , Collection , ItemCollection
 from pystac.extensions.eo import EOExtension
 from pystac.extensions.label import LabelExtension
 import pandas as pd
@@ -123,9 +123,12 @@ def make_cataloge(images:list[str] , name="Bev Catalog") -> Catalog:
         extent=pystac.Extent(
             spatial=pystac.SpatialExtent([min(minx), min(miny), max(maxx), max(maxy)]),
             temporal=pystac.TemporalExtent([[datetime(2020, 1, 1, tzinfo=timezone.utc), None]]),
-        ),
+        )
+
+    
 
     )
+    itemcollection = ItemCollection(items)
     for item in items:
         collection.add_item(item)
 
@@ -133,31 +136,42 @@ def make_cataloge(images:list[str] , name="Bev Catalog") -> Catalog:
                               description="A bev STAC catalog",
                                 title="Bev Catalog",
                                 href="."
+                            
                               )
     catalog.add_child(collection)
-    return catalog
+    
+    
+
+    
+    return collection , catalog , itemcollection
   
 
 
 
 images = [
     'https://data.bev.gv.at/download/KM_R/KM50/20250710/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1440_2_20250710.tif',
-    'https://data.bev.gv.at/download/KM_R/KM50/20250505/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1330_2_20250505.tif','https://data.bev.gv.at/download/DOP/20250415/2024470_Mosaik_RGB.tif'
+    'https://data.bev.gv.at/download/KM_R/KM50/20250505/KM50_UTM33N_200L_Farbtiff_mit_Relief/km50_mit_Relief_1330_2_20250505.tif',
+    'https://data.bev.gv.at/download/DOP/20250415/2024470_Mosaik_RGB.tif'
 ]
 with gr.Blocks() as demo:
     
-    catalog = make_cataloge(images)
+    collection, catalog , itemcollection = make_cataloge(images)
 
     gr.Markdown("## STAC Catalog")
     gr.Json(catalog.to_dict())
     gr.Markdown("## STAC Catalog JSON")
 
-    collection = catalog.get_children()
-    print(collection)
-    for item in list(collection)[0].get_items():
-        gr.Markdown(f"### Item: {item.id}")
+    
+    print("----------- Item Collection -----------")
+    gr.Markdown("## STAC Item Collection")
+    gr.Json(itemcollection.to_dict())   
 
-        gr.Json(item.to_dict())
+    gr.Markdown("## STAC Collection")
+    gr.Json(collection.to_dict())
+    with open("bev_catalog.json", "w") as f:
+        json.dump(catalog.to_dict(), f, indent=4)
+        
+    
         
     demo.launch()
 
