@@ -169,7 +169,8 @@ with gr.Blocks() as demo:
     gr.Markdown("## STAC Collection")
     gr.Json(collection.to_dict())
     with open("bev_catalog.json", "w") as f:
-        json.dump(catalog.to_dict(), f, indent=4)
+        content = json.dump(itemcollection.to_dict(), f, indent=4)
+        #f.write(content)
         
     
         
